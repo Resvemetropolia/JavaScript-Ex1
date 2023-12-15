@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leap Years in Interval</title>
+</head>
+<body>
+
+<script>
+    var startYear = prompt("Enter the start year:");
+    var endYear = prompt("Enter the end year:");
+    startYear = parseInt(startYear);
+    endYear = parseInt(endYear);
+    if (isNaN(startYear) || isNaN(endYear) || startYear < 0 || endYear < startYear) {
+        console.error("Invalid input. Please enter valid start and end years.");
+    } else {
+        document.write("<ul>");
+        for (var year = startYear; year <= endYear; year++) {
+            if ((year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0)) {
+                document.write("<li>" + year + "</li>");
+            }
+        }
+        document.write("</ul>");
+    }
+</script>
+
+</body>
+</html>

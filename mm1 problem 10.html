@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dice Probability Calculator</title>
+</head>
+<body>
+
+<script>
+    var numDice = prompt("Enter the number of dice:");
+    var sumOfEyes = prompt("Enter the sum of the eye numbers:");
+    numDice = parseInt(numDice);
+    sumOfEyes = parseInt(sumOfEyes);
+    if (isNaN(numDice) || isNaN(sumOfEyes) || numDice <= 0 || sumOfEyes <= 0) {
+        document.write("<p>Invalid input. Please enter valid values.</p>");
+    } else {
+        var totalRolls = 10000; // You can adjust this number as needed
+        var successfulRolls = 0;
+
+        for (var i = 0; i < totalRolls; i++) {
+            var currentSum = 0;
+            for (var j = 0; j < numDice; j++) {
+                currentSum += Math.floor(Math.random() * 6) + 1;
+            }
+            if (currentSum === sumOfEyes) {
+                successfulRolls++;
+            }
+        }
+        var probability = (successfulRolls / totalRolls) * 100;
+
+        document.write("<p>Probability to get sum " + sumOfEyes + " with " + numDice + " dice is " + probability.toFixed(2) + "%</p>");
+    }
+</script>
+
+</body>
+</html>
